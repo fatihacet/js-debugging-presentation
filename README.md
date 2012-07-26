@@ -1,2 +1,1 @@
-js-debugging-presentation
-=========================
+My JavaScript Debugging presentation for Jstanbul 2012. Currently only available in Turkish.
