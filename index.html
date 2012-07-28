@@ -7,7 +7,7 @@
     <meta content="yes" name="apple-mobile-web-app-capable" />
     <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style" />
 
-    <link href='http://fonts.googleapis.com/css?family=Signika:700,300,400,600' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Signika:700,300,400,600&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
     <link type="text/css" rel="stylesheet" href="css/reset.css" />
     <link type="text/css" rel="stylesheet" href="css/reveal.css" />
     <link type="text/css" rel="stylesheet" href="css/main.css" />
@@ -19,9 +19,270 @@
 <body>
     <div class="reveal">
         <div class="slides">
+            
+            <section>
+                <h2>JavaScript Debugging</h2>
+                <p>Fatih Acet - jstanbul 2012</p>
+            </section>
 
             <section>
                 <h1>Merhaba!</h1>
+            </section>
+            
+            <section>
+                <p>Ben Fatih, 1988 İstanbul doğumluyum. Evliyim.</p>
+                <p>2009'dan beri Front End Developer'ım.</p>
+                <p>@yuxel kadar olamasam da çok hızlı konuşurum.</p>
+                <p>Mottom: "Bu kodu insan debug edecek!!1"</p>
+            </section>
+            
+            <section>
+                <h2>Konu Başlıkları</h2>
+                <p>Bug, Debugging ve Debugger Nedir?</p>
+                <p>Debugging Neden Önemlidir?</p>
+                <p>Debugging Araçlarımız Neler?</p>
+                <p>Nasıl Debug Yapıyoruz?</p>
+                <p>Remote Debugging Yöntemleri</p>
+                <p>Live Debugging</p>
+            </section>
+
+            <section>
+                <h3>Bug, Debugging ve Debugger</h3>
+                <h2>Nedir?</h2>
+            </section>
+
+            <section>
+                <h3>BUG</h3>
+                <p>
+                    Bir bilgisayar programı yada bir kod parçası üzerinde bulunan hata, açık veya sistemin
+                    beklenenden farklı bir sonuç üretmesine neden olan durumlara verilen addır.
+                </p>
+            </section>
+
+            <section>
+                <h3>DEBUGGING</h3>
+                <p>
+                    Sistemdeki yada kodumuz üzerindeki bug'ları bulup düzeltmek için yaptığımız
+                    hata ayıklama işlemdir.
+                </p>
+            </section>
+
+            <section>
+                <h3>DEBUGGER</h3>
+                <p>
+                    Debugging yapılacak kodun istediğimiz anında durup, adım adım ilerleyebileceğimiz ve
+                    ortam değişkenlerinin anlık durumunu görebileceğimiz araçlardır.
+                </p>
+            </section>
+
+            <section>
+                <h3>Debugging Neden Önemlidir?</h3>
+            </section>
+            
+            <section>
+                <p>
+                    Amaç yanlış veya hatalı çalışan kodu düzeltip, kabul edilebilecek şekilde
+                    çalışmasını sağlamaktır. İyi, hızlı ve doğru bir şekilde debug yapabilmek,
+                    iyi bir developer olmanın çok önemli bir parçasıdır.
+                </p>
+            </section>
+
+            <section>
+                <p>
+                    Bazı bug'ları debug edip fix etmek, kodu yazmaktan daha uzun sürebilir.
+                    Debugging tekniklerini iyi bilmek bu süreyi ve eforu en aza indirir.
+                </p>
+            </section>
+
+            <section>
+                <p>
+                    Bug'lar buzdağı gibidir. Görünen kısmı sadece %10'u olabilir.
+                    Dolayısıyla mevcut bug'ı fix ederken yenilerini üretmemek gerekir.
+                    Neyi nasıl debug ettiğimizi iyi bilmeliyiz.
+                </p>
+            </section>
+
+            <section>
+                <p>
+                    Kodun gerçekten düzgün çalıştığını doğrulamanın en önemli
+                    yollarından biri de debug etmektir.
+                </p>
+            </section>
+
+            <section>
+                <p class="quote">
+                    If debugging is the process of removing bugs,
+                    then programming must be the process of putting them in”.
+                    <br />
+                    Edsger W. Dijkstra
+                </p>
+                <p>&nbsp;</p>
+                <p class="quote">
+                    “There’s always one more bug”.
+                </p>
+            </section>
+            
+            <section>
+                <h3>Debugging Araçlarımız Neler?</h3>
+            </section>
+
+            <section>
+                <h2>Firebug</h2>
+                <img src="images/firebug.png" width="800" />
+            </section>
+
+            <section>
+                <h3>Firebug</h3>
+                <p>&nbsp;</p>
+                <p>+ Çok sayıda addon desteği</p>
+                <p>+ Firebug Lite versiyonu</p>
+                <p>+ Cookie düzenleme desteği</p>
+                <p>+ DOM Tabı</p>
+                <p>- Stabil olmaması</p>
+                <p>- Eklenen eklentilerin stabiliteyi daha da bozması</p>
+            </section>
+
+            <section>
+                <h2>Chrome Developer Tools</h2>
+                <img src="images/chromedevtools.png" width="800" />
+            </section>
+
+            <section>
+                <h3>Chrome Developer Tools</h3>
+                <p>&nbsp;</p>
+                <p>+ Stabil olması</p>
+                <p>+ WebSocket, LocalStorage, Web Worker desteği</p>
+                <p>+ JS syntax hilite ve pretty print özelliği</p>
+                <p>+ Çok gelişmiş JS ve CSS Profile desteği</p>
+                <p>- Aktif XHR request'leri gösterememesi</p>
+            </section>
+
+            <section>
+                <h2>Opera Dragonfly</h2>
+                <img src="images/dragonfly.png" width="800" />
+            </section>
+
+            <section>
+                <h3>Opera Dragonfly</h3>
+                <p>&nbsp;</p>
+                <p>+ Stabil olması</p>
+                <p>+ Güzel ve temiz bir arayüze sahip olması</p>
+                <p>+ JS syntax hilite özelliği</p>
+                <p>+ Ruler, color picker gibi araçlarla gelmesi</p>
+                <p>+ Remote debugging desteklemesi</p>
+            </section>
+
+            <section>
+                <h2>IE Developer Tools</h2>
+                <img src="images/iedevtools.png" width="800" />
+            </section>
+
+            <section>
+                <h3>IE Developer Tools</h3>
+                <p>&nbsp;</p>
+                <p>+ Browser Mode seçeneği (IE7, IE8, IE9, IE10)</p>
+                <p>+ Çok gelişmiş bir network ve profiler ekranı</p>
+                <p>- Windows makinede bile debug ederken kafayı yedirmesi</p>
+            </section>
+
+            <section>
+                <h3>Nasıl Debug Yapıyoruz?</h3>
+            </section>
+
+            <section>
+                <h3>Debug Öncesi</h3>
+                <ul>
+                    <li>Ortada bir bug olduğunu doğrulamak gerekir.</li>
+                    <li>Tekrar edilebilir durumda olmalıdır.</li>
+                    <li>Olması gereken davranışı anlamak.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Debug Anı</h3>
+                <ul>
+                    <li>İlgili yere breakpoint eklenmeli</li>
+                    <li>Sayfayı yenilemek veya event'i tetiklemek gerekir</li>
+                    <li>
+                        Kodun istediğimiz yerde durduğunu görüp Continue, Step In, Step Out,
+                        Step Over özelliklerini kullanmalı
+                    </li>
+                    <li>Bu süreci bug'ı fix edene kadar tekrarlamak gerekir.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Debug Sonrası</h3>
+                <ul>
+                    <li>Varsa Unit Test'lerin pass ettiği doğrulanmalı</li>
+                    <li>Yapılan fix dokümante edilmeli</li>
+                    <li>Hala eksik yada ilerde sıkıntı çıkarak bir yer varsa TODO comment'i eklenmeli</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Remote Debugging Yöntemleri</h3>
+            </section>
+
+            <section>
+                <h3>Weinre (WEb INspector REmote)</h3>
+                <ul>
+                    <li>Mobile Device'lar üzerinde HTML ve CSS inspect etmek için iyi bir çözüm.</li>
+                    <li>PhoneGap tarafından geliştirilmesi devam ediyor.</li>
+                    <li>Hosted versiyonu <a href="http://debug.phonegap.com/">burada bulunmakta.</a> </li>
+                </ul>
+            </section>
+            
+            <section>
+                <h3>Aardwolf</h3>
+                <p>Weinre'den daha gelişmiş, Breakpoint, step by step debugging desteği var.</p>
+                <p>Node.js kullanıyor.</p>
+                <p>JavaScript ile yazılmış. (12 points goes to Aardwolf)</p>
+                <p>&nbsp;</p>
+                <p>
+                    <a href="http://lexandera.com/aardwolf/">Aardwolf - Website</a>
+                </p>
+                <p>
+                    <a href="https://github.com/lexandera/Aardwolf">Aardwolf - Github</a>
+                </p>
+            </section>
+
+            <section>
+                <h3>Aardwolf</h3>
+                <img src="images/aardwolf.png" width="1000"/>
+            </section>
+
+            <section>
+                <h3>Live Debugging</h3>
+                <p>Fasten your seat belts...</p>
+            </section>
+            
+            <section>
+                <h3>Sunum</h3>
+                <p>&nbsp;</p>
+                <p>
+                    <a href="https://github.com/fatihacet/js-debugging-presentation">Github</a>
+                </p>
+                <p>
+                    <a href="https://www.fatihacet.com/lab/jstanbul/debugging/">Hosted version</a>
+                </p>
+            </section>
+
+            <section>
+                <h2>Teşekkürler!</h2>
+                <p>&nbsp;</p>
+                <p>
+                    Blog: <a href="http://fatihacet.com" >fatihacet.com</a>
+                </p>
+                <p>
+                    Email: <a href="mailto:fatih@fatihacet.com">fatih@fatihacet.com</a>
+                </p>
+                <p>
+                    Twitter: <a href="https://twitter.com/#!/fatihacet/">@fatihacet</a>
+                </p>
+                <p>
+                    Github: <a href="https://github.com/fatihacet/">fatihacet</a>
+                </p>
             </section>
 
             <aside class="controls">
