@@ -31,3 +31,11 @@ html, body {
 .userName {
     color: #0094C2;
 }
+.getMoreTweet {
+    color: #0094C2;
+    text-decoration: none;
+    margin-left: 150px;
+}
+.getMoreTweet:hover {
+    text-decoration: underline;
+}

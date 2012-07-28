@@ -116,5 +116,5 @@ Demo.prototype.tweetsTemplate = function(logo, fullName, userName, tweet) {
  * A link template for get more tweet link.
  */
 Demo.prototype.moreLinkTemplate = function() {
-    return '<a href="#">Daha fazla tweet göster</a>';
+    return '<a href="#" class="getMoreTweet">Daha fazla tweet göster</a>';
 };
